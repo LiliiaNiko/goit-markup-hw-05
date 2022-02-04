@@ -52,7 +52,7 @@
         <section class="hero">
             <div class="container">
             <h1 class="hero-title">ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br/> ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-            <button type="button" class="button">Заказать услугу</button>
+            <button type="button" class="button" data-modal-open>Заказать услугу</button>
             </div>
         </section>
         <section class="features">
@@ -101,9 +101,15 @@
             <div class="container">
             <h2 class="section-title">Чем мы занимаемся</h2>
             <ul class="work-img list">
-                <li class="img-item"><img src="./images/img-1.jpg" alt="человек печатает на клавиатуре" width="370"></li>
-                <li class="img-item"><img src="./images/img-2.jpg" alt="человек за ноутбуком держит в руке смартфон" width="370"></li>
-                <li class="img-item"><img src="./images/img-3.jpg" alt="человек работает на планшете" width="370"></li>
+                <li class="img-item"><img src="./images/img-1.jpg" alt="человек печатает на клавиатуре" width="370">
+                <p class="work-top-text">Десктопные приложения</p>
+                </li>
+                <li class="img-item"><img src="./images/img-2.jpg" alt="человек за ноутбуком держит в руке смартфон" width="370">
+                <p class="work-top-text">Мобильные приложения</p>
+                </li>
+                <li class="img-item"><img src="./images/img-3.jpg" alt="человек работает на планшете" width="370">
+                <p class="work-top-text">Дизайнерские решения</p>
+                </li>
             </ul>
             </div>
         </section>
@@ -369,5 +375,30 @@
             </div> 
         </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal-close-btn" data-modal-close>
+                <svg width="18" height="18">
+                    <use href="./images/icons.svg#icon-close-black-18dp-2-1"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script>
+        (() => {
+                const refs = {
+                    openModalBtn: document.querySelector("[data-modal-open]"),
+                    closeModalBtn: document.querySelector("[data-modal-close]"),
+                    modal: document.querySelector("[data-modal]"),
+                };
+
+                refs.openModalBtn.addEventListener("click", toggleModal);
+                refs.closeModalBtn.addEventListener("click", toggleModal);
+
+                function toggleModal() {
+                    refs.modal.classList.toggle("is-hidden");
+                }
+            })();
+    </script>
 </body>
 </html>
